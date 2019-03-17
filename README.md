@@ -12,7 +12,7 @@ pip install Flask
 
 ## 运行
 ```
-# 服务器启动
+# 服务器启动 (URL: http://0.0.0.0:5000/)
 python app.py
 
 # 爬虫启动
