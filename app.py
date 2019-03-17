@@ -3,6 +3,7 @@ from flask import Flask, jsonify
 from flask import render_template
 import sqlite3
 import cgi
+import socket
 
 DATABASE = 'mini_app.db'
 PAGE_SIZE = 10
@@ -49,4 +50,7 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    host_name = socket.getfqdn(socket.gethostname())
+    # 除了服务器都开启调试
+    is_debug = 'centos' not in host_name
+    app.run(host='0.0.0.0', debug=is_debug)

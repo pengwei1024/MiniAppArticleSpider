@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS `articles` (
               `author` varchar(200) NULL,
               `ext` TEXT NULL,
               `source` varchar(1) NOT NULL,
-              `create_time` TIMESTAMP NULL default CURRENT_TIMESTAMP,
-              `update_time` TIMESTAMP NULL default CURRENT_TIMESTAMP
+              `create_time` TIMESTAMP NULL default (datetime('now', 'localtime')),
+              `update_time` TIMESTAMP NULL default (datetime('now', 'localtime'))
               )
 '''
 
