@@ -1,0 +1,31 @@
+{% extends "layout.Jinja2" %}
+{% block content %}
+    <div class="page" id="page-infinite-scroll-bottom">
+        <header class="bar bar-nav">
+            <h1 class="title">小程序社区动态</h1>
+        </header>
+        <div class="content infinite-scroll" data-distance="100">
+            <div class="page-index">
+                {% for item in data %}
+                    <div class="card" onclick="location.href='{{ item.href }}'">
+                        <div class="card-header color-white no-border">{{ item.title }}
+                        </div>
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                <p>{{ item.desc }}</p>
+                                <small>{{ item.time }}</small>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- 加载提示符 -->
+            <div class="infinite-scroll-preloader">
+                <div class="preloader"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <script type="text/javascript" src="{{ url_for('static', filename="index.js") }}?v=11"></script>
+{% endblock %}

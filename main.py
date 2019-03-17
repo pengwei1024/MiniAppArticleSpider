@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from scrapy import cmdline
+from scrapy.cmdline import execute
+import os
 
-cmdline.execute("scrapy crawl wx".split())
+os.system('scrapy crawl wx && scrapy crawl aliPay')
+# execute(['scrapy', 'crawl', 'wx'])
+# execute(['scrapy', 'crawl', 'aliPay'])

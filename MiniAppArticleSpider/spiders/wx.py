@@ -4,6 +4,9 @@ from MiniAppArticleSpider.items import WxItem
 
 
 class WxSpider(scrapy.Spider):
+    """
+    微信小程序社区爬虫
+    """
     name = "wx"
     allowed_domains = ["developers.weixin.qq.com"]
     start_urls = ['https://developers.weixin.qq.com/community/']

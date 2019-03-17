@@ -1,2 +1,2 @@
-beautifulsoup4==4.7.1
 scrapy==1.6
+Flask==1.0.2
