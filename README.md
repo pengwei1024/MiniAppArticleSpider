@@ -1,5 +1,5 @@
 # MiniAppArticleSpider
-MiniApp Article Spider
+自动抓取小程序社区(微信小程序、百度智能小程序、蚂蚁金服小程序)文章并页面展示
 
 ## 安装
 ```
@@ -17,6 +17,12 @@ python app.py
 
 # 爬虫启动
 python main.py
+
+# 服务器部署
+nohup python app.py >/dev/null 2>&1 &
+
+# 定时启动爬虫 (23:25启动)
+25 23 * * * /usr/bin/python /home/miniapp/main.py
 ```
 
 ## 效果
