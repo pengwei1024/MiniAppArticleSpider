@@ -1,11 +1,24 @@
+# coding=utf-8
 from flask import Flask, jsonify
 from flask import render_template
 import sqlite3
+import cgi
 
 DATABASE = 'mini_app.db'
 PAGE_SIZE = 10
 
 app = Flask(__name__)
+
+
+def escape(html):
+    """
+    转义HTML字符
+    :param html:
+    :return:
+    """
+    if not html:
+        return ""
+    return cgi.escape(html)
 
 
 @app.route('/post/<int:page>')
@@ -15,7 +28,8 @@ def get_post(page=0):
         page * PAGE_SIZE, PAGE_SIZE))
     data = []
     for row in cursor.fetchall():
-        item = {'title': row[1], 'href': row[2], 'desc': row[3], 'time': row[9]}
+        item = {'title': row[1], 'href': row[2], 'desc': escape(row[3]), 'time': row[9],
+                'source': row[7]}
         data.append(item)
     cursor.close()
     return jsonify(data)
@@ -27,7 +41,8 @@ def index():
     cursor = conn.execute("select * from articles order by update_time desc limit {}".format(PAGE_SIZE))
     data = []
     for row in cursor.fetchall():
-        item = {'title': row[1], 'href': row[2], 'desc': row[3], 'time': row[9]}
+        item = {'title': row[1], 'href': row[2], 'desc': escape(row[3]), 'time': row[9],
+                'source': row[7]}
         data.append(item)
     cursor.close()
     return render_template('index.Jinja2', data=data)
