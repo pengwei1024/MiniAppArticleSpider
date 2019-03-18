@@ -8,7 +8,7 @@ $(function () {
             var html = '';
             array.forEach(function (item) {
                 html += `
-                <div class="card" onclick="location.href='${item.href }'"><div class="card-header color-white no-border">${item.title }
+                <div class="card content-item" onclick="location.href='${item.href }'"><div class="card-header color-white no-border">${item.title }
                         </div>
                         <div class="card-content">
                             <div class="card-content-inner">
@@ -16,6 +16,7 @@ $(function () {
                                 <small>${ item.time }</small>
                             </div>
                         </div>
+                        <span class="subscript">${item.source}</span>
                     </div>
                 `;
             });

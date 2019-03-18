@@ -22,6 +22,12 @@ def escape(html):
     return cgi.escape(html)
 
 
+def source_name(source):
+    if source == "3":
+        return u"支付宝"
+    return u"微信"
+
+
 @app.route('/post/<int:page>')
 def get_post(page=0):
     conn = sqlite3.connect(DATABASE)
@@ -30,7 +36,7 @@ def get_post(page=0):
     data = []
     for row in cursor.fetchall():
         item = {'title': row[1], 'href': row[2], 'desc': escape(row[3]), 'time': row[9],
-                'source': row[7]}
+                'source': source_name(row[7])}
         data.append(item)
     cursor.close()
     return jsonify(data)
@@ -43,7 +49,7 @@ def index():
     data = []
     for row in cursor.fetchall():
         item = {'title': row[1], 'href': row[2], 'desc': escape(row[3]), 'time': row[9],
-                'source': row[7]}
+                'source': source_name(row[7])}
         data.append(item)
     cursor.close()
     return render_template('index.Jinja2', data=data)
