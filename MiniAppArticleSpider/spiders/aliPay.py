@@ -9,7 +9,8 @@ class WxSpider(scrapy.Spider):
     """
     name = "aliPay"
     allowed_domains = ["openclub.alipay.com"]
-    start_urls = ['https://openclub.alipay.com/index.php?c=thread&a=subforum&orderby=postdate&fid=66&theme=']
+    start_urls = ['https://openclub.alipay.com/index.php?c=thread&a=subforum&orderby=postdate&fid=66&theme=',
+                  'https://openclub.alipay.com/index.php?c=thread&a=subforum&orderby=postdate&fid=101&theme=']
 
     def parse(self, response):
         quotes = response.css('.threadblock')
