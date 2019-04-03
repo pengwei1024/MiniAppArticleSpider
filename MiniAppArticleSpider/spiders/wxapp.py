@@ -15,7 +15,7 @@ class WxSpider(scrapy.Spider):
         quotes = response.css('#itemContainer .recommend_article_list')
         length = len(quotes)
         for index in range(length):
-            # 暂时先去前20跳
+            # 暂时先取前20条
             if index > 20:
                 break
             post_item = quotes[index]

@@ -25,6 +25,10 @@ def escape(html):
 def source_name(source):
     if source == "3":
         return u"支付宝"
+    elif source == "4":
+        return u"小程序社区"
+    elif source == "5":
+        return u"TNFE"
     return u"微信"
 
 
