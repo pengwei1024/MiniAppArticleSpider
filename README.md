@@ -26,7 +26,16 @@ nohup python app.py >/dev/null 2>&1 &
 ```
 
 ## 效果
+
+[在线体验 http://article.hiandroid.net](http://article.hiandroid.net/) <br/>
+
 ![](./screenshot/s1.png)
+
+## 抓取网页
+- https://developers.weixin.qq.com/community/
+- https://openclub.alipay.com/index.php?c=thread&a=subforum&orderby=postdate&fid=66&theme=
+- www.wxapp-union.com
+- https://github.com/Tnfe/TNFE-Weekly
 
 
 ## 致谢

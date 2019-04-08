@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from scrapy.cmdline import execute
 import os
 
-os.system("scrapy crawl wx && scrapy crawl aliPay && scrapy crawl Tnfe -s USER_AGENT='CCBot' && scrapy crawl wxapp")
-# execute(['scrapy', 'crawl', 'wx'])
-# execute(['scrapy', 'crawl', 'aliPay'])
+array = ['wx', 'aliPay', "Tnfe -s USER_AGENT='CCBot'", 'wxapp']
+command = ''
+for index, val in enumerate(array):
+    command += 'scrapy crawl ' + val
+    if index < len(array) - 1:
+        command += ' && '
+print command
+os.system(command)
