@@ -106,3 +106,4 @@ venv.bak/
 *.db
 .idea/
 latest.zip
+config-release.ini

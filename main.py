@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+from util.util import send_msg
 
 array = ['wx', 'aliPay', "Tnfe -s USER_AGENT='CCBot'", 'wxapp']
 command = ''
@@ -10,3 +11,4 @@ for index, val in enumerate(array):
         command += ' && '
 print command
 os.system(command)
+send_msg(u'小程序社区更新完成!!!')
