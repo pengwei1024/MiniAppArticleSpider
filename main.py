@@ -3,7 +3,7 @@
 import os
 from util.util import send_msg
 
-array = ['wx', 'aliPay', "Tnfe -s USER_AGENT='CCBot'", 'wxapp']
+array = ['wx', 'aliPay', "Tnfe -s USER_AGENT='CCBot'", 'wxapp', 'baidu']
 command = ''
 for index, val in enumerate(array):
     command += 'scrapy crawl ' + val

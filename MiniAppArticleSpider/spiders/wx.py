@@ -9,8 +9,10 @@ class WxSpider(scrapy.Spider):
     """
     name = "wx"
     allowed_domains = ["developers.weixin.qq.com"]
-    start_urls = ['https://developers.weixin.qq.com/community/',
-                  'https://developers.weixin.qq.com/community/develop/recommend']
+    start_urls = ['https://developers.weixin.qq.com/community/develop/mixflow',
+                  'https://developers.weixin.qq.com/community/develop/recommend',
+                  'https://developers.weixin.qq.com/community/develop/article?tag=hot',
+                  'https://developers.weixin.qq.com/community/develop/article?tag=star']
 
     def parse(self, response):
         quotes = response.css('.post_item')

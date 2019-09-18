@@ -9,15 +9,14 @@ class WxSpider(scrapy.Spider):
     """
     name = "aliPay"
     allowed_domains = ["openclub.alipay.com"]
-    start_urls = ['https://openclub.alipay.com/index.php?c=thread&a=subforum&orderby=postdate&fid=66&theme=',
-                  'https://openclub.alipay.com/index.php?c=thread&a=subforum&orderby=postdate&fid=101&theme=']
+    start_urls = ['https://developer.aliyun.com/group/alipay']
 
     def parse(self, response):
-        quotes = response.css('.threadblock')
+        quotes = response.css('.question-slide-question')
         for post_item in quotes:
-            title = post_item.css('.contitle a::text').extract_first()
-            href = post_item.css('.contitle a::attr(href)').extract_first()
-            desc = post_item.css('.coninfotext::text').extract_first()
+            title = post_item.css('.title::text').extract_first()
+            href = post_item.css('a::attr(href)').extract_first()
+            desc = ''
             url = response.urljoin(href)
             item = WxItem()
             item['title'] = title
