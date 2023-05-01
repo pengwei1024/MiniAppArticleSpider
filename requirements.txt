@@ -1,4 +1,4 @@
 requests
 scrapy==1.6
-Flask==1.0.2
+Flask==2.3.2
 configparser==3.7.3
